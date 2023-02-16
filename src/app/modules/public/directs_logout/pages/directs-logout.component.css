@@ -1,0 +1,19 @@
+
+/* CONTENEDORES */
+
+.contenedor-videos {
+    @apply lg:grid grid-cols-3 justify-center gap-4 p-2 w-full;
+}
+
+/* ----------- */
+
+/* H1, H2, etc */
+.titulo-page {
+    @apply text-6xl text-white font-bold;
+}
+
+.titulo-directos {
+    @apply text-4xl text-white text-center;
+}
+
+/* ----------- */

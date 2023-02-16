@@ -1,0 +1,69 @@
+<div>
+    <div class="container mx-auto">
+      <div class="py-5 contenedor-principal">
+        <div class="p-5 contenedor-form">
+          <div class="flex justify-center">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="100"
+              fill="currentColor"
+              class="bi bi-person-circle"
+              viewBox="0 0 16 16"
+            >
+              <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+              <path
+                fill-rule="evenodd"
+                d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"
+              />
+            </svg>
+          </div>
+          <div class="text-center">
+            <h2 class="text-white text-5xl">Registro</h2>
+          </div>
+          <form [formGroup]="formRegister" (ngSubmit)="sendRegister()" class="login-auth-form">
+              <div class="form-group">
+                  <label for="username">Usuario</label>
+                  <input type="text" formControlName="username" class="form-input" placeholder="Usuario">
+              </div>
+              <div class="form-group">
+                <label for="first_name">Nombre</label>
+                <input type="text" formControlName="first_name" class="form-input" placeholder="Nombre">
+            </div>
+            <div class="form-group">
+              <label for="last_name">Apellido</label>
+              <input type="text" formControlName="last_name" class="form-input" placeholder="Apellido">
+          </div>
+              <div class="form-group">
+                <label for="email">Correo</label>
+                <input type="text" formControlName="email" class="form-input" placeholder="Correo">
+            </div>
+            <div class="form-group">
+              <label for="phone_number">Numero de telefono</label>
+              <input type="number" formControlName="phone_number" class="form-input" placeholder="Numero de telefono">
+          </div>
+              <div class="form-group">
+                  <label for="password">Contraseña</label>
+                  <input type="password" formControlName="password" class="form-input" placeholder="Contraseña">
+              </div>
+              <div class="form-group">
+                <label for="password2">Confirmar contraseña</label>
+                <input type="password" formControlName="password2" class="form-input" placeholder="Confirmar contraseña">
+            </div>
+              <div *ngIf="errorRegister">
+                  Ocurrio un error en el registro
+              </div>
+              <div class="grid grid-cols-4">
+              <div class="form-action">
+                  <button  class="registro social-btn" [disabled]="formRegister.invalid">Registrarme</button>
+              </div>
+              <div class="form-steps">
+                <a class="link" [routerLink]="linksRegister.router">{{linksRegister.name}}</a>
+            </div>
+          </div>
+          </form>
+          
+      </div>
+      </div>
+    </div>
+  </div>
+  

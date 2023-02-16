@@ -1,0 +1,118 @@
+<!-- <app-sidebar></app-sidebar> -->
+<div class="w-full h-full">
+  <app-spinner *ngIf="stateLoading"></app-spinner>
+  <app-modal-detail
+    [stateModal]="modalSwitch"
+    [modalBackground]="modalBackground"
+  >
+    <h1>hello brothers</h1>
+  </app-modal-detail>
+  <div class="content">
+    <div class="content-form">
+      <h1 class="content-form__title">
+        Registro -
+        <span class="font-bold bg-red-600 text-white capitalize rounded px-1"
+          >youtube</span
+        >
+      </h1>
+      <form (ngSubmit)="submitVideo(this.formRegisterVideo.value)" [formGroup]="formRegisterVideo" class="h-auto">
+        <input
+          type="text"
+          placeholder="Ingresa el titulo"
+          formControlName="title"
+        />
+        <div *ngIf="validateForm">
+          <p *ngIf="formRegisterVideo.get('title')?.invalid">
+            El titulo es requerido
+          </p>
+        </div>
+        <!-- <app-form-error formControlName="title"></app-form-error> -->
+        <input
+          type="text"
+          placeholder="Ingresa la descripcion"
+          formControlName="description"
+        />
+        <input type="text" placeholder="Ingresa la url" formControlName="url" />
+        <div class="flex justify-center items-center">
+          <button class="content-form__buttonPost">></button>
+        </div>
+      </form>
+    </div>
+    <div class="content-publications">
+      <h1 class="content-publications__title">Publicaciones</h1>
+      <div class="content-publications__list">
+        <div
+          class="content-publications__list-item"
+          *ngFor="let video of dataVideos"
+        >
+          <div class="content-publications__list-item--title">
+            <h2>{{ video.title }}</h2>
+          </div>
+          <div class="content-publications__list-item--description">
+            <p>{{ video.description }}</p>
+          </div>
+          <div
+            class="content-publications__list-item--button"
+            (click)="openVideo(video.url)"
+          >
+            <button>Ver video</button>
+          </div>
+          <div class="content-publications__list-item--actions">
+            <button class="content-publications__list-item--actions-editar" (click)="editFormData(video)">
+              Editar
+            </button>
+            <button
+              class="content-publications__list-item--actions-eliminiar"
+              (click)="modalConfirmDelete(video)"
+            >
+              Eliminar
+            </button>
+          </div>
+          <div *ngIf="video.id == idConfirm" class="modalConfirm">
+            <app-modal-confirmation [stateModal]="modalConfirmation">
+              <div class="content-modal">
+                <div class="content-modal__title">
+                  <h1 class="text-center">
+                    ¿Estas seguro de eliminar
+                    <span
+                      class="font-bold text-red-600 capitalize"
+                      >{{ dataVideoId.title }}</span
+                    >?
+                  </h1>
+                </div>
+                <div class="content-modal__button">
+                  <button
+                    class="content-modal__button-cancelar"
+                    (click)="closeModalConfirmDelete()"
+                  >
+                    Cancelar
+                  </button>
+                  <button
+                    class="content-modal__button-eliminar"
+                    (click)="deleteVideo(video)"
+                  >
+                    Eliminar
+                  </button>
+                </div>
+              </div>
+            </app-modal-confirmation>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="viewVideo" class="content-video">
+    <iframe
+      [ngClass]="{ animation: animationMode }"
+      class="content-video__iframe"
+      #ytplayer
+      width="560"
+      height="315"
+      [src]="urlConvert"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen
+    ></iframe>
+    <button (click)="closeVideo()">Cerrar video</button>
+  </div>
+</div>

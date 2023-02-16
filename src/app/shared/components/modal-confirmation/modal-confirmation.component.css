@@ -1,0 +1,17 @@
+.animation {
+    transition: all ease 1s;
+    display: none;
+}
+
+.over {
+    transition: all ease 1s;
+    visibility: visible ;
+}
+
+.modal {
+    @apply rounded-md bg-white px-4 pb-4 pt-1 shadow-md;
+}
+
+.modal_head {
+    @apply flex justify-end cursor-pointer;
+}

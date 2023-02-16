@@ -1,0 +1,15 @@
+<div class="over" [ngClass]="{ overlay: modalBackground }">
+  <section
+    class="modal"
+    [ngClass]="{ animation: stateModal, dnone: !modalBackground }"
+  >
+    <header class="modal_head">
+      <button (click)="closeModal()">
+        <i class="uil uil-times-square"></i>
+      </button>
+    </header>
+    <div class="modal__container">
+        <ng-content></ng-content>
+    </div>
+  </section>
+</div>

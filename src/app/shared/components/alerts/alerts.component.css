@@ -1,0 +1,81 @@
+
+/* CONTENEDORES */
+
+.content__alert {
+    @apply fixed top-16 right-0 h-auto;
+    z-index: 1000;
+}
+
+.alertSuccess {
+    @apply w-auto max-w-lg  bg-green-400 text-white rounded-lg shadow-lg p-3 m-3;
+    opacity: 0;
+    transition: all 1s ease-in-out;
+}
+
+.alertDanger {
+    @apply w-auto max-w-lg  bg-red-400 text-white rounded-lg shadow-lg p-3 m-3;
+    opacity: 0;
+    transition: all 1s ease-in-out;
+}
+
+.alertWarning {
+    @apply w-auto max-w-lg bg-yellow-400 text-white rounded-lg shadow-lg p-3 m-3;
+    opacity: 0;
+    transition: all 1s ease-in-out;
+}
+
+.alertInfo {
+    @apply w-auto max-w-lg bg-blue-400 text-white rounded-lg shadow-lg p-3 m-3;
+    opacity: 0;
+    transition: all 1s ease-in-out;
+}
+
+/*------------------------*/
+
+/* ANIMACION */
+
+.animation {
+    opacity: 1;
+    transition: all 1s ease-in-out;
+}
+
+/*------------------------*/
+
+
+/* ICONOS */
+
+.uil-check-circle {
+    @apply text-2xl;
+    display: none;
+}
+
+.uil-times-circle {
+    @apply text-2xl;
+    display: none;
+}
+
+.uil-exclamation-circle {
+    @apply text-2xl;
+    display: none;
+}
+
+.uil-info-circle {
+    @apply text-2xl;
+    display: none;
+}
+
+.iconDanger {
+    display: block;
+}
+
+.iconSuccess {
+    display: block;
+}
+
+.iconWarning {
+    display: block;
+}
+
+.iconInfo {
+    display: block;
+}

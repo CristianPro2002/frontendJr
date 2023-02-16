@@ -1,0 +1,22 @@
+
+  /* ----------- */
+  
+  /* CONTENEDORES */
+  
+  .principal {
+    @apply h-auto w-full;
+    background-color: var(--bg-color);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  .footer {
+    margin-top: auto;
+  }
+  
+  /* ----------- */
+  
+  /* MEDIA QUERYS */
+  
+  /* ----------- */

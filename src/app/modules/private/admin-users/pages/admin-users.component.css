@@ -1,0 +1,243 @@
+
+/* CONTENEDORES */
+
+.content__adminUsers {
+  @apply w-full h-auto;
+}
+
+.cont-grid {
+    @apply grid lg:grid-cols-2 gap-4;
+}
+
+.cont-grid-checkbox {
+    @apply grid lg:grid-cols-4 md:grid-cols-4 gap-4;
+}
+
+.cont_data_checkbox {
+    @apply text-center;
+    margin: auto;
+}
+
+.content__modal--delete {
+    @apply flex flex-col items-center justify-center bg-gray-300 rounded-lg p-4;
+    color: var(--bg-color)
+}
+
+.modal__buttons {
+    @apply flex justify-center;
+}
+
+/*-------------------*/
+
+/* CHECKBOX */
+
+.checkbox {
+    margin: 10px;
+}
+
+.lbl-checkbox {
+    display: inline-block;
+    width: 55px;
+    height: 30px;
+    background: #aaa;
+    border-radius: 100px;
+    position: relative;
+    cursor: pointer;
+}
+
+.lbl-checkbox:after {
+    position: absolute;
+    content: '';
+    width: 22px;
+    height: 22px;
+    background: #fff;
+    border-radius: 100px;
+    top: 4px;
+    left: 5px;
+    transition: 0.3s;
+}
+
+#is_active:checked~.lbl-checkbox {
+    background: var(--bg-color);
+}
+
+#is_active:checked~.lbl-checkbox:after {
+    left: 28px;
+}
+
+#is_active {
+    display: none;
+}
+
+#is_staff:checked~.lbl-checkbox {
+    background: var(--bg-color);
+}
+
+#is_staff:checked~.lbl-checkbox:after {
+    left: 28px;
+}
+
+#is_staff {
+    display: none;
+}
+
+#is_admin:checked~.lbl-checkbox {
+    background: var(--bg-color);
+}
+
+#is_admin:checked~.lbl-checkbox:after {
+    left: 28px;
+}
+
+#is_admin {
+    display: none;
+}
+
+#is_superadmin:checked~.lbl-checkbox {
+    background: var(--bg-color);
+}
+
+#is_superadmin:checked~.lbl-checkbox:after {
+    left: 28px;
+}
+
+#is_superadmin {
+    display: none;
+}
+
+/*------------------------*/
+
+/* INPUTS */
+
+.cont_data input {
+    @apply border border-gray-300 rounded-md p-2 w-full text-white;
+    background-color: var(--bg-color);
+}
+
+.cont__changePassword input {
+    @apply border border-gray-300 rounded-md p-2 w-full text-white;
+    background-color: var(--bg-color);
+}
+
+/*------------------------*/
+
+/* TITULOS */
+
+.modal__title {
+    font-size: 2.5rem;
+    font-weight: 500;
+}
+
+.modal__title--bold {
+    font-weight: 700;
+    text-transform: capitalize;
+}
+
+.modal__text--bold {
+    font-weight: 700;
+    text-transform: capitalize;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Signika:wght@400;600&display=swap');
+.title-users {
+    @apply text-5xl font-bold text-white font-mono italic;
+}
+
+/*------------------------*/
+
+/* ICONOS */
+
+.uil-edit-alt {
+    @apply text-3xl text-yellow-500 cursor-pointer;
+}
+
+.uil-trash {
+    @apply text-3xl text-red-500 cursor-pointer;
+}
+
+.uil-check {
+    @apply text-5xl text-green-500 cursor-pointer;
+}
+
+.uil-times {
+    @apply text-5xl text-red-500 cursor-pointer;
+}
+
+/*------------------------*/
+
+/* TABLA */
+
+.table-users {
+    @apply w-full bg-slate-50 rounded-lg;
+}
+
+.table-users thead {
+    @apply bg-gray-300;
+}
+
+.table-users tbody td:hover {
+    background-color: rgb(233, 238, 241);
+    color: black;
+    transition: all 0.3s ease;
+}
+
+.scroll-table {
+    overflow-x: auto;
+    padding: 10px;
+}
+
+/* BORDES TABLE */
+.title {
+    @apply px-4 py-2 text-gray-800
+}
+
+.title-especial-left {
+    @apply px-4 py-2 text-gray-800
+}
+
+.title-especial-rigth {
+    @apply px-4 py-2 text-gray-800
+}
+
+.data  {
+    @apply px-4 py-2 text-gray-800
+}
+
+.data-especial-left {
+    @apply px-4 py-2 text-gray-800
+}
+
+.data-especial-rigth {
+    @apply px-4 py-2 text-gray-800
+}
+
+/*------------------------*/
+
+/* BOTONES */
+
+.modal__button--delete {
+    @apply bg-red-500 text-white rounded-md p-2 m-1;
+}
+
+.modal__button--cancel {
+    @apply text-white rounded-md p-2 m-1;
+    background-color: var(--bg-color);
+}
+
+.modal__button--cambiarPassword {
+    @apply border-2 border-gray-800 py-2.5 px-5 rounded-md 
+    hover:bg-gray-800 hover:text-white hover:border-gray-800 transition duration-500 
+    ease-in-out mx-1 mb-6 lg:mb-0 cursor-pointer;
+}
+
+/*------------------------*/
+
+/* MEDIA QUERYS */
+
+@media (max-width: 600px) {
+
+    .modal__title {
+        font-size: 1.7rem;
+    }
+    
+}

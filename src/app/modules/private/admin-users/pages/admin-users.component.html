@@ -1,0 +1,279 @@
+<div class="content__adminUsers">
+  <app-spinner *ngIf="stateLoaging"></app-spinner>
+  <app-modal-detail
+    [stateModal]="modalSwitch"
+    [modalBackground]="modalBackground"
+  >
+    <div *ngIf="stateDelete" class="content__modal--delete">
+      <div>
+        <p class="modal__text">
+          ¿Estas seguro de eliminar a
+          <span class="modal__text modal__text--bold">{{
+            usersDataId.first_name
+          }}</span>
+          ?
+        </p>
+      </div>
+      <div class="modal__buttons">
+        <button
+          class="modal__button modal__button--delete"
+          (click)="deleteUser(usersDataId)"
+        >
+          Eliminar
+        </button>
+        <button
+          class="modal__button modal__button--cancel"
+          (click)="stateDelete = false"
+        >
+          Cancelar
+        </button>
+      </div>
+    </div>
+    <div class="grid lg:grid-cols-2">
+      <div>
+        <h2 class="modal__title">
+          Detalle de
+          <span class="modal__title modal__title--bold">{{
+            usersDataId.first_name
+          }}</span>
+        </h2>
+      </div>
+
+      <div class="flex justify-end items-center gap-2">
+        <app-tooltip [Content]="Tooltips[0].body">
+          <button (click)="putUserActive()">
+            <i class="uil uil-edit-alt"></i>
+          </button>
+        </app-tooltip>
+
+        <app-tooltip [Content]="Tooltips[1].body">
+          <button (click)="deleteUserModal()">
+            <i class="uil uil-trash"></i>
+          </button>
+        </app-tooltip>
+      </div>
+    </div>
+    <form
+      [formGroup]="formUser"
+      (ngSubmit)="onSubmit(usersDataId.id, formUser.value)"
+    >
+      <div class="cont-grid">
+        <div class="cont_data">
+          <label for="first_name">Nombre</label>
+          <input
+            type="text"
+            id="first_name"
+            name="first_name"
+            [value]="usersDataId.first_name"
+            formControlName="first_name"
+            [disabled]="disabled"
+          />
+        </div>
+        <div class="cont_data">
+          <label for="first_name">Apellidos</label>
+          <input
+            type="text"
+            id="last_name"
+            name="last_name"
+            [value]="usersDataId.last_name"
+            formControlName="last_name"
+            [disabled]="disabled"
+          />
+        </div>
+      </div>
+      <div class="cont-grid">
+        <div class="cont_data">
+          <label for="username">Usuario</label>
+          <input
+            type="text"
+            id="username"
+            name="username"
+            [value]="usersDataId.username"
+            formControlName="username"
+            [disabled]="disabled"
+          />
+        </div>
+        <div class="cont_data">
+          <label for="first_name">Correo</label>
+          <input
+            type="text"
+            id="email"
+            name="email"
+            [value]="usersDataId.email"
+            formControlName="email"
+            [disabled]="disabled"
+          />
+        </div>
+      </div>
+      <div class="cont-grid">
+        <div class="cont_data">
+          <label for="rol_nombre">Rol asignado</label>
+          <input
+            type="text"
+            id="rol_nombre"
+            name="rol_nombre"
+            [value]="usersDataId.rol_nombre"
+            [disabled]="true"
+          />
+        </div>
+        <div class="cont_data">
+          <label for="phone_number">Numero de telefono</label>
+          <input
+            type="number"
+            id="phone_number"
+            name="phone_number"
+            [value]="usersDataId.phone_number"
+            formControlName="phone_number"
+            [disabled]="disabled"
+          />
+        </div>
+      </div>
+      <div class="cont-grid-checkbox">
+        <div class="cont_data_checkbox">
+          <label for="is_active">{{
+            usersDataId.is_active ? "habilitado" : "inhabilitado"
+          }}</label>
+          <div class="checkbox">
+            <input
+              type="checkbox"
+              id="is_active"
+              name="is_active"
+              [checked]="usersDataId.is_active"
+              formControlName="is_active"
+              [disabled]="disabled"
+            />
+            <label for="is_active" class="lbl-checkbox"></label>
+          </div>
+        </div>
+        <div class="cont_data_checkbox">
+          <label for="is_staff">{{
+            usersDataId.is_staff ? "Staff" : "off Staff"
+          }}</label>
+          <div class="checkbox">
+            <input
+              type="checkbox"
+              id="is_staff"
+              name="is_staff"
+              [checked]="usersDataId.is_staff"
+              formControlName="is_staff"
+              [disabled]="disabled"
+            />
+            <label for="is_staff" class="lbl-checkbox"></label>
+          </div>
+        </div>
+        <div class="cont_data_checkbox">
+          <label for="is_admin">{{
+            usersDataId.is_admin ? "Admin" : "off Admin"
+          }}</label>
+          <div class="checkbox">
+            <input
+              type="checkbox"
+              id="is_admin"
+              name="is_admin"
+              [checked]="usersDataId.is_admin"
+              formControlName="is_admin"
+              [disabled]="disabled"
+            />
+            <label for="is_admin" class="lbl-checkbox"></label>
+          </div>
+        </div>
+        <div class="cont_data_checkbox">
+          <label for="is_superadmin">{{
+            usersDataId.is_superadmin ? "Superadmin" : "off Superadmin"
+          }}</label>
+          <div class="checkbox">
+            <input
+              type="checkbox"
+              id="is_superadmin"
+              name="is_superadmin"
+              [checked]="usersDataId.is_superadmin"
+              formControlName="is_superadmin"
+              [disabled]="disabled"
+            />
+            <label for="is_superadmin" class="lbl-checkbox"></label>
+          </div>
+        </div>
+      </div>
+      <div class="grid grid-cols-2 mt-2">
+        <div>
+          <a
+            class="modal__button modal__button--cambiarPassword"
+            *ngIf="!disabled"
+            (click)="changePassword()"
+          >
+            Cambiar contraseña
+          </a>
+        </div>
+        <div class="flex justify-end">
+          <button type="submit" *ngIf="!disabled">
+            <i class="uil uil-check"></i>
+          </button>
+          <button (click)="putUserDesactive()" *ngIf="!disabled">
+            <i class="uil uil-times"></i>
+          </button>
+        </div>
+      </div>
+      <div *ngIf="statePassword" class="cont__changePassword">
+        <input
+          type="password"
+          id="password"
+          name="password"
+          formControlName="password"
+          placeholder="Escribe la nueva contraseña"
+        />
+      </div>
+    </form>
+  </app-modal-detail>
+
+  <div class="container mx-auto">
+    <div class="p-4">
+      <div class="m-3">
+        <h1 class="title-users">Administracion de Usuarios</h1>
+        <div class="p-3">
+          <p class="text-white">
+            En este apartado se administran los usuarios registrados en la
+            plataforma, asi tambien como los distintos roles que puedan tener.
+          </p>
+          <p class="text-white">
+            Cada usuario registrado se puede eliminar editar o visualizar su
+            detalle dependiendo las direcciones dadas.
+          </p>
+          <button
+            (click)="
+              alertDanger(
+                'hola',
+                'Dios es lo maximo si sabias eso, no?, pues ahora lo sabes'
+              )
+            "
+          >
+            click
+          </button>
+        </div>
+      </div>
+      <div class="scroll-table">
+        <table class="table-users">
+          <thead>
+            <tr>
+              <th class="title-especial-left">Nombre</th>
+              <th class="title">Apellido</th>
+              <th class="title">Email</th>
+              <th class="title">Rol</th>
+              <th class="title-especial-rigth">Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let user of usersData">
+              <td class="data-especial-left">{{ user.first_name }}</td>
+              <td class="data">{{ user.last_name }}</td>
+              <td class="data">{{ user.email }}</td>
+              <td class="data">{{ user.rol_nombre }}</td>
+              <td class="data-especial-rigth">
+                <button (click)="openModal(user.id)">Detalle</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

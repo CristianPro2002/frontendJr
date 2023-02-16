@@ -1,0 +1,38 @@
+/* HTML */
+
+html {
+  min-height: 100%;
+  position: relative;
+}
+
+/* ----------- */
+
+/* CONTENEDORES */
+
+.principal {
+  @apply lg:w-screen lg:h-auto w-auto;
+  background-color: var(--bg-color);
+}
+
+.footer {
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+
+/* ----------- */
+
+/* MEDIA QUERYS */
+
+@media screen and (max-width: 1000px) {
+  .principal {
+    height: 100vh;
+  }
+
+  .footer {
+    position: absolute;
+  }
+}
+
+/* ----------- */
+

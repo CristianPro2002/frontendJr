@@ -1,0 +1,124 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* CONTENEDORES */
+
+.overlay {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(74, 74 ,74 , .8);
+    z-index: 11;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.modal {
+    @apply rounded-md bg-white p-5 shadow-lg;
+    position: fixed;
+    --opacity: 0;
+    opacity: var(--opacity);
+    transition: opacity .5s;
+    animation: close 1s;
+    width: 80%;
+    overflow-y: auto;
+    max-height: 450px;
+
+}
+
+.dnone {
+    display: none;
+}
+
+.modal__container {
+    width: 90%;
+    padding: 1.5em 1.5em;
+    margin: 0 auto;
+}
+
+.modal_head {
+    @apply flex justify-end w-full; 
+}
+
+/*--------------------*/
+
+/* Tamaño del scroll */
+
+.modal::-webkit-scrollbar {
+    width: 8px;
+}
+
+/*------------------------*/
+  
+/* Estilos barra (thumb) de scroll */
+.modal::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 4px;
+}
+  
+.modal::-webkit-scrollbar-thumb:active {
+    background-color: #999999;
+}
+  
+.modal::-webkit-scrollbar-thumb:hover {
+    background: #b3b3b3;
+    box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+/*------------------------*/
+
+/* Estilos track de scroll */
+.modal::-webkit-scrollbar-track {
+    background: #e1e1e1;
+    border-radius: 4px;
+}
+  
+.modal::-webkit-scrollbar-track:hover, 
+.modal::-webkit-scrollbar-track:active {
+    background: #d4d4d4;
+}
+
+/*------------------------*/
+
+/* ANIMACION MODAL */
+
+.animation {
+  opacity: 1 !important;
+  animation: show 1s;
+  display: block;
+}
+
+@keyframes show {
+    0%{
+        transform: translateY(-150vh);
+    }
+    100%{
+        transform: translateY(0);
+    }
+}
+
+@keyframes close {
+    0%{
+        transform: translateY(0);
+    }
+    100%{
+        transform: translateY(-150vh);
+    }
+}
+
+/*------------------------*/
+
+/* ICONS */
+
+.uil-times-square {
+    font-size: 1.8rem;
+}
+
+/*------------------------*/
+
+

@@ -1,0 +1,120 @@
+.content {
+    @apply grid lg:grid-cols-4 md:grid-cols-4 gap-4 m-2 w-full;
+}
+
+.content-form {
+    @apply bg-gray-500 rounded-lg p-4;
+
+    max-height: 275px;
+}
+
+.content-publications {
+    @apply p-4 col-span-3;   
+}
+
+.content-publications__list {
+    @apply grid md:grid-cols-3 gap-4;
+}
+
+.content-publications__list-item {
+    @apply bg-gray-500 rounded-lg p-4 col-span-1 hover:translate-y-2 transition-all duration-500 ease-in-out;
+}
+
+.content input {
+    @apply w-full my-1 bg-gray-200 border-2 border-gray-200 rounded py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-gray-700;
+}
+
+.content-form__title {
+    @apply text-2xl text-white m-1;
+}
+
+.content-publications__title {
+    @apply text-2xl font-bold text-white text-center;
+}
+
+.content-publications__list-item--title {
+    @apply text-xl font-bold text-white text-center;
+
+    text-transform: capitalize;
+}
+
+.content-publications__list-item--description {
+    @apply text-base text-white;
+}
+
+.content-publications__list-item--button {
+    @apply bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded text-center;
+
+    cursor: pointer;
+}
+
+.content-publications__list-item--actions {
+    @apply flex justify-center p-2;
+}
+
+.content-publications__list-item--actions-editar {
+    @apply bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2;
+}
+
+.content-publications__list-item--actions-eliminiar {
+    @apply bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded;
+}
+
+.content-form__buttonPost {
+    @apply bg-blue-500 hover:bg-blue-700 text-white font-bold mt-1 py-3 px-5 rounded-full;
+}
+
+.modalConfirm {
+    @apply fixed md:w-80 -translate-x-3;
+
+}
+
+.content-modal__button {
+    @apply flex justify-center;
+}
+
+.content-modal__button-cancelar {
+    @apply bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded m-1;
+}
+
+.content-modal__button-eliminar {
+    @apply text-white font-bold py-2 px-4 rounded m-1;
+    background-color: var(--bg-color);
+}
+
+.content-video {
+    @apply absolute top-0 left-0 w-full h-full flex justify-center items-center flex-col;
+    background-color: rgba(74, 74 ,74 , .8);
+}
+
+.content-video button {
+    @apply bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded m-2;
+}
+
+.content-video__iframe {
+    @apply rounded-lg;
+    animation: closeAnimation 1s;
+}
+
+.animation {
+    animation: openAnimation 1s forwards;
+    transition: all 1s ease-in-out;
+}
+
+@keyframes closeAnimation {
+    0% {
+        transform: translateY(0)
+    }
+    100% {
+        transform: translateY(-500px);
+    }
+}
+
+@keyframes openAnimation {
+    0% {
+        transform: translateY(-500px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}

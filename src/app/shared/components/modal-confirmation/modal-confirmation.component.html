@@ -1,0 +1,14 @@
+<div>
+    <div class="over" [ngClass]="{ animation: !stateModal }">
+        <section
+          class="modal"
+        >
+          <header class="modal_head">
+              <i class="uil uil-times-square" (click)="closeModal()"></i>
+          </header>
+          <div class="modal__container">
+              <ng-content></ng-content>
+          </div>
+        </section>
+      </div>
+</div>

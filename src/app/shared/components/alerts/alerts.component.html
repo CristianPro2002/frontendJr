@@ -1,0 +1,44 @@
+<div *ngIf="showAlert">
+  <div class="content__alert">
+    <div
+      *ngFor="let info of dataInfo"
+      [ngClass]="{
+        animation: info,
+        alertDanger: info.type === 'danger',
+        alertSuccess: info.type === 'success',
+        alertWarning: info.type === 'warning',
+        alertInfo: info.type === 'info'
+      }"
+    >
+      <div class="grid grid-cols-8">
+        <div class="row-span-2 col-span-1 flex items-center justify-center">
+          <i
+            class="uil uil-times-circle"
+            [ngClass]="{
+              iconDanger: info.type === 'danger'
+            }"
+          ></i>
+          <i
+            class="uil uil-check-circle"
+            [ngClass]="{
+              iconSuccess: info.type === 'success'
+            }"></i>
+          <i 
+            class="uil uil-exclamation-circle"
+            [ngClass]="{
+              iconWarning: info.type === 'warning'
+            }"></i>
+          <i
+            class="uil uil-info-circle"
+            [ngClass]="{
+              iconInfo: info.type === 'info'
+            }"></i>
+        </div>
+        <div class="col-span-7">
+          <h1 class="">{{ info.title }}</h1>
+          <p class="message">{{ info.message }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
